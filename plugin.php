@@ -4,7 +4,7 @@
  *
  * Keep unused (unregistered) shortcodes from being displayed
  *
- * @package   evermore_hide_ununused_plugins
+ * @package   evermore_hide_ununused_shortcodes
  * @author    Cliff Seal <cliff@logoscreative.co>
  * @link      https://logoscreative.co
  * @copyright 2018 Logos Creative
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @package evermore_custom_ga
  * @author  Cliff Seal <cliff@evermo.re>
  */
-class evermore_hide_ununused_plugins {
+class evermore_hide_ununused_shortcodes {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -57,7 +57,7 @@ class evermore_hide_ununused_plugins {
 	private function __construct() {
 
 		// Priority 12+ is used because shortcodes are executed at priority 11
-		add_filter( 'the_content', array( $this, 'evermore_hide_ununused_plugins_content' ), 12 );
+		add_filter( 'the_content', array( $this, 'evermore_hide_ununused_shortcodes_content' ), 12 );
 
 	}
 
@@ -85,7 +85,7 @@ class evermore_hide_ununused_plugins {
 	 *
 	 * @return    string    Translated text
 	 */
-	public function evermore_hide_ununused_plugins_content($content) {
+	public function evermore_hide_ununused_shortcodes_content($content) {
 
 		// From get_shortcode_regex()
 		$search_pattern =
@@ -126,4 +126,4 @@ class evermore_hide_ununused_plugins {
 
 }
 
-evermore_hide_ununused_plugins::get_instance();
+evermore_hide_ununused_shortcodes::get_instance();
